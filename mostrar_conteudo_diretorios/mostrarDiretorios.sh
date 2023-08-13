@@ -6,7 +6,7 @@ function mostrarConteudo() {
 	
 	let CONT++
 	
-	DIRETORIO=$(ls -A | egrep -v '[\.]');
+	DIRETORIO=$(ls -lA | egrep '^[d]' | awk '{ print $9 }');
 
 
 	for dir in $DIRETORIO
@@ -27,7 +27,7 @@ function mostrarConteudo() {
 
 	done
 	
-	ARQUIVO=$(ls -A | egrep '[\.]');
+	ARQUIVO=$(ls -lA | egrep '^[-]' | awk '{ print $9 }');
 
 	for i in $ARQUIVO
 	do
